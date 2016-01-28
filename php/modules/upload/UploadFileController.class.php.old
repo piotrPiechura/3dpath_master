@@ -1,0 +1,57 @@
+<?php
+class UploadFileController extends CoreControllerAbstractPage {
+	
+    protected $record = null;
+	protected $diskPath = null;
+	protected $form;
+
+	public function isTemplateEngineNeeded() {
+		return False;
+	}
+	
+	protected function setDisplayBasics(){
+	    
+	}
+
+    public function prepareData() {
+		$this->handleRequest();
+	
+	}
+	
+	private function handleRequest(){
+	    $response = array('status'=>'error','msg'=>'');
+
+	    if(empty($_FILES['_fileUpload'])){
+	        $response['msg'] = 'Not found file';
+	    }else{
+	        $file = $_FILES['_fileUpload'];
+	        if($file['error'] != 0){
+	            $response['msg'] = 'Error: '.$file['error'];
+	        }else{
+	            $name = $file['name'];
+	            $size = $file['size'];
+	            $type = $file['type'];
+	            move_uploaded_file($file['tmp_name'], '_html/upload/tmp/'.$name);
+	            $response['status'] = 'ok';
+	            $response['data'] = array('id'=>111,'name'=>$name,'url'=>'_html/upload/tmp/'.$name, 'size'=>$size);
+	        }
+	    }
+        echo json_encode($response);
+        exit;
+	}
+	
+	public function display() {
+	    echo '<form action="" method="post">
+	    		<input type="file" name="_fileUpload" />
+	    		<input type="submit"/>
+	    		<input type="hidden" value="11" name="_token"/>
+	    	</form>';
+		//echo(file_get_contents($this->diskPath));
+	}
+
+	protected function error() {
+		echo '{"status":"error","msg":"Error in UploadFileController"}';
+		exit();
+	}
+}
+?>

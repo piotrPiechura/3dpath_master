@@ -1,0 +1,389 @@
+ {if !empty($trajectory3DRender.1)}
+     
+    <script src="assets/js/3dTree/Three.js"></script>
+    <script src="assets/js/3dTree/Detector.js"></script>
+    <script src="assets/js/3dTree/Stats.js"></script>
+    <script src="assets/js/3dTree/OrbitControls.js"></script>
+    <script src="assets/js/3dTree/THREEx.KeyboardState.js"></script>
+    <script src="assets/js/3dTree/THREEx.FullScreen.js"></script>
+    <script src="assets/js/3dTree/THREEx.WindowResize.js"></script>
+     
+    <div class="row"> 
+        <div class="col-md-12 nocsroll">
+           <div class="grid simple">
+                <div class="grid-title">
+                
+                    <h4>Trajectory <span class="semi-bold"> 3D</span></h4>
+                    <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                </div>
+                <div class="grid-body">
+                    <div>
+                                 
+                                <div id="ThreeJS" style="z-index: 1; position: relative; left:0px; top:0px; height:600px;margin-left:auto; margin-right:auto;"></div>
+<script>
+    {assign var=pathParams value=$trajectory3DRenderParam.1}
+    var xMax = {$pathParams.xMax};
+    var yMax = {$pathParams.yMax};
+    var zMax = {$pathParams.zMax};
+    var wellColor =  '{if !empty($pathParams.color)}{$pathParams.color}{else}#0000ff{/if}';   
+    {literal}
+
+// standard global variables
+var container, scene, camera, renderer, controls, stats;
+var keyboard = new THREEx.KeyboardState();
+var clock = new THREE.Clock();
+
+// custom global variables
+var mesh;
+
+if (xMax > yMax) var MMax = yMax;
+if (xMax < yMax) var MMax = xMax;
+
+if ( Math.abs(zMax) >  Math.abs(MMax)) var MMax = zMax;
+
+console.log();
+
+init();
+animate();
+
+// FUNCTIONS 		
+function init() 
+{
+	// SCENE
+	scene = new THREE.Scene();
+	// CAMERA
+	var SCREEN_WIDTH = 600, SCREEN_HEIGHT = 600;
+	var VIEW_ANGLE = 60, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
+	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR);
+	scene.add(camera);
+        //scene.position.set(7000,50,-1500);
+        //scene.updateMatrix();
+	camera.position.set(7000,50,-1500);
+	camera.lookAt({x:-1000,y:-3000,z:-2000});	
+	// RENDERER
+	if ( Detector.webgl )
+		renderer = new THREE.WebGLRenderer( {antialias:true} );
+	else
+		renderer = new THREE.CanvasRenderer(); 
+	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+	container = document.getElementById( 'ThreeJS' );
+	container.appendChild( renderer.domElement );
+        //container.offset().top - 20;
+	// EVENTS
+	//THREEx.WindowResize(renderer, camera);
+	THREEx.FullScreen.bindKey({ charCode : 'm'.charCodeAt(0) });
+	// CONTROLS
+	controls = new THREE.OrbitControls( camera, renderer.domElement );
+	// STATS
+	/*stats = new Stats();
+	stats.domElement.style.position = 'absolute';
+	stats.domElement.style.bottom = '0px';
+	stats.domElement.style.zIndex = 100;
+	container.appendChild( stats.domElement );*/
+        
+	// LIGHT
+	var light = new THREE.PointLight(0xffffff);
+	light.position.set(100,250,100);
+	scene.add(light);
+        
+	/*
+	// FLOOR
+	var floorTexture = new THREE.ImageUtils.loadTexture( 'images/checkerboard.jpg' );
+	floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
+	floorTexture.repeat.set( 10, 10 );
+	var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide } );
+	var floorGeometry = new THREE.PlaneGeometry(1000, 1000, 10, 10);
+	var floor = new THREE.Mesh(floorGeometry, floorMaterial);
+	floor.position.y = -0.5;
+	floor.rotation.x = Math.PI / 2;
+	scene.add(floor);
+	*/
+	// SKYBOX
+	var skyBoxGeometry = new THREE.CubeGeometry( 10000, 10000, 10000 );
+	var skyBoxMaterial = new THREE.MeshBasicMaterial( { color: 0x9999ff, side: THREE.BackSide } );
+	var skyBox = new THREE.Mesh( skyBoxGeometry, skyBoxMaterial );
+	//scene.add(skyBox);
+	
+        //wellColor = "0x" + wellColor.replace("#","");
+        console.log(wellColor);
+        var material = new THREE.LineBasicMaterial({ color: wellColor }); 
+        var geometry = new THREE.Geometry(); 
+        geometry.vertices.push( 
+                                {/literal}
+                                {foreach item="_point" from=$trajectory3DRender.1 name="Points"}
+                                new THREE.Vector3( {$_point.x}, {$_point.z},{$_point.y} ){if !($smarty.foreach.Points.last)},{/if}   
+                                {/foreach}        
+                                /*new THREE.Vector3( 100, 90, 100 ),
+                                new THREE.Vector3( 90, 85, 100 ),
+                                new THREE.Vector3( 80, 80, 100 ),
+                                new THREE.Vector3( 70, 75, 100 ),
+                                new THREE.Vector3( 60, 70, 100 ),
+                                new THREE.Vector3( 50, 65, 100 ),
+                                new THREE.Vector3( 45, 60, 100 ),
+                                new THREE.Vector3( 40, 55, 100 ),
+                                new THREE.Vector3( 38, 50, 100 ),
+                                new THREE.Vector3( 36, 45, 100 ),
+                                new THREE.Vector3( 34, 40, 100 ),
+                                new THREE.Vector3( 30, 35, 100 ),
+                                new THREE.Vector3( 25, 30, 100 ), 
+                                new THREE.Vector3( 20, 20, 100 ) */
+                                ); 
+                                {literal}
+        var line = new THREE.Line( geometry, material ); 
+        scene.add( line );
+        
+        {/literal}
+        {if !empty($startingPoint)}
+        
+            var sphereParent = new THREE.Object3D();
+         
+           var sphereGeometry = new THREE.SphereGeometry( 15, 16, 8 );
+           var sphereMaterial = new THREE.MeshLambertMaterial( {literal}{{/literal} color: 0xff0000 {literal}}{/literal} );
+           var sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
+           sphereParent.add( sphere );
+           sphereParent.position.set({$startingPoint.x},{$startingPoint.z},{$startingPoint.y});
+            scene.add(sphereParent);
+        {/if}
+        {if !empty($trajectoryHaracteristicPoints)}    
+            {foreach item="_hpoint" from=$trajectoryHaracteristicPoints name="HPoints"}
+            var sphereParent = new THREE.Object3D();
+         
+            var sphereGeometry = new THREE.SphereGeometry( 15, 16, 8 );
+            var sphereMaterial = new THREE.MeshLambertMaterial( {literal}{{/literal} color: 0xff0000 {literal}}{/literal} );
+            var sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
+            sphereParent.add( sphere );
+            sphereParent.position.set({$_hpoint.x},{$_hpoint.z},{$_hpoint.y});
+            scene.add(sphereParent);
+            {if $_hpoint.x != 0}
+                var lineGeometry = new THREE.Geometry();
+                var vertArray = lineGeometry.vertices;
+                vertArray.push( new THREE.Vector3({$_hpoint.x}, {$_hpoint.z}, {$_hpoint.y}), new THREE.Vector3({$_hpoint.x}, {$_hpoint.z}, 0) );
+                lineGeometry.computeLineDistances();
+                var lineMaterial = new THREE.LineDashedMaterial( {literal}{{/literal} color: 0xff0000, dashSize: 10, gapSize: 10 {literal}}{/literal} );
+                var line = new THREE.Line( lineGeometry, lineMaterial );
+                scene.add(line);
+           
+            {/if}
+            {if $_hpoint.y != 0}
+                var lineGeometry = new THREE.Geometry();
+                var vertArray = lineGeometry.vertices;
+                vertArray.push( new THREE.Vector3({$_hpoint.x}, {$_hpoint.z}, {$_hpoint.y}), new THREE.Vector3(0, {$_hpoint.z}, {$_hpoint.y}) );
+                lineGeometry.computeLineDistances();
+                var lineMaterial = new THREE.LineDashedMaterial( {literal}{{/literal} color: 0xff0000, dashSize: 10, gapSize: 10 {literal}}{/literal} );
+                var line = new THREE.Line( lineGeometry, lineMaterial );
+                scene.add(line);
+           
+            {/if}
+            
+            
+            {/foreach}    
+         {/if}   
+        {literal}
+        
+            var lineGeometry = new THREE.Geometry();
+            var vertArray = lineGeometry.vertices;
+            vertArray.push( new THREE.Vector3(-100, -100, 0), new THREE.Vector3(-100, 100, 0) );
+            lineGeometry.computeLineDistances();
+            var lineMaterial = new THREE.LineDashedMaterial( { color: 0x00cc00, dashSize: 4, gapSize: 2 } );
+            var line = new THREE.Line( lineGeometry, lineMaterial );
+            scene.add(line);
+        
+	////////////
+	// CUSTOM //
+	////////////
+	var step = 150;
+	var geometry = new THREE.SphereGeometry( 30, 32, 16 );
+	var material = new THREE.MeshLambertMaterial( { color: 0x000088 } );
+	mesh = new THREE.Mesh( geometry, material );
+	mesh.position.set(40,40,40);
+	//scene.add(mesh);
+	
+	var axes = new THREE.AxisHelper(50);
+	//axes.position = mesh.position;
+	scene.add(axes);
+	
+        var materialLine = new THREE.LineBasicMaterial({ color: 0xDBDBDB }); 
+        
+	var gridXZ = new THREE.GridHelper(Math.abs(MMax /2), step);
+	gridXZ.setColors( new THREE.Color(0x006600), new THREE.Color(0xDBDBDB) );
+	gridXZ.position.set( -1*  MMax / 2,zMax, MMax / 2 );
+	//scene.add(gridXZ);
+	
+        for (i=0;i > zMax;i=i-step){  // piony
+            var geometryLine = new THREE.Geometry();
+            geometryLine.vertices.push(new THREE.Vector3( -i, zMax, 0));
+            geometryLine.vertices.push(new THREE.Vector3( -i, zMax, MMax));
+            var line2 = new THREE.Line( geometryLine, materialLine ); 
+            scene.add( line2 ); 
+        }    
+        //var materialLine = new THREE.LineBasicMaterial({ color: 0xFF0000 }); 
+        for (i=0;i > MMax;i=i-step){  // poziomy
+            var geometryLine = new THREE.Geometry();
+            geometryLine.vertices.push(new THREE.Vector3( 0, zMax, i));
+            geometryLine.vertices.push(new THREE.Vector3( -MMax, zMax, i));
+            var line2 = new THREE.Line( geometryLine, materialLine ); 
+            scene.add( line2 ); 
+        }  
+        
+        
+	var gridXY = new THREE.GridHelper(Math.abs(zMax/2), step);
+	gridXY.position.set(-1 *  MMax /2 ,zMax /2,0  );
+	gridXY.rotation.x = Math.PI/2;
+	gridXY.setColors( new THREE.Color(0x000066), new THREE.Color(0xDBDBDB) );
+	//scene.add(gridXY);
+
+        for (i=0;i > zMax;i=i-step){  // piony
+            var geometryLine = new THREE.Geometry();
+            geometryLine.vertices.push(new THREE.Vector3( -i, 0, 0));
+            geometryLine.vertices.push(new THREE.Vector3( -i, zMax, 0));
+            var line2 = new THREE.Line( geometryLine, materialLine ); 
+            scene.add( line2 ); 
+        }    
+        //var materialLine = new THREE.LineBasicMaterial({ color: 0xFF0000 }); 
+        for (i=0;i > MMax;i=i-step){  // poziomy
+            var geometryLine = new THREE.Geometry();
+            geometryLine.vertices.push(new THREE.Vector3( 0, i, 0));
+            geometryLine.vertices.push(new THREE.Vector3( -MMax, i, 0));
+            var line2 = new THREE.Line( geometryLine, materialLine ); 
+            scene.add( line2 ); 
+        }  
+
+	var gridYZ = new THREE.GridHelper(Math.abs(zMax/2), step);
+	gridYZ.position.set( 0, zMax /2 , MMax /2  );
+	gridYZ.rotation.z = Math.PI/2;
+	gridYZ.setColors( new THREE.Color(0x660000), new THREE.Color(0xDBDBDB) );
+	//scene.add(gridYZ);
+	
+        
+        for (i=0;i > zMax;i=i-step){  // poziomy
+            var geometryLine = new THREE.Geometry();
+            geometryLine.vertices.push(new THREE.Vector3( 0, i, 0));
+            geometryLine.vertices.push(new THREE.Vector3( 0, i, MMax));
+            var line2 = new THREE.Line( geometryLine, materialLine ); 
+            scene.add( line2 ); 
+        }    
+        //var materialLine = new THREE.LineBasicMaterial({ color: 0xFF0000 }); 
+        for (i=0;i > MMax;i=i-step){  // piony
+            var geometryLine = new THREE.Geometry();
+            geometryLine.vertices.push(new THREE.Vector3( 0, 0, i));
+            geometryLine.vertices.push(new THREE.Vector3( 0, zMax, i));
+            var line2 = new THREE.Line( geometryLine, materialLine ); 
+            scene.add( line2 ); 
+        }    
+        
+	// direction (normalized), origin, length, color(hex)
+	var origin = new THREE.Vector3(50,100,50);
+	var terminus  = new THREE.Vector3(75,75,75);
+	var direction = new THREE.Vector3().subVectors(terminus, origin).normalize();
+	var arrow = new THREE.ArrowHelper(direction, origin, 50, 0x884400);
+	//scene.add(arrow);
+	
+        
+        console.log("zMax");
+        console.log(zMax);
+        //i = zMax;
+        for(var i=0;i > zMax;i=i-step){
+            var spritey = makeTextSprite( -i, { fontsize: 20 } );
+            spritey.position.set(0,i,MMax);
+            scene.add( spritey );
+        }
+        
+        for(var i=0;i > zMax;i=i-step){
+            var spritey = makeTextSprite( -i, { fontsize: 20 } );
+            spritey.position.set(0,i,MMax);
+            scene.add( spritey );
+        }
+        
+         //spritey.position.set(0,zMax/2 ,MMax);
+        //scene.add( spritey );
+        
+	//window.addEventListener( 'resize', onWindowResize, false );
+
+    }
+
+
+function makeTextSprite( message, parameters ){
+    if ( parameters === undefined ) parameters = {};
+    var fontface = parameters.hasOwnProperty("fontface") ?
+    parameters["fontface"] : "Arial";
+    var fontsize = parameters.hasOwnProperty("fontsize") ?
+    parameters["fontsize"] : 24;
+    var borderThickness = parameters.hasOwnProperty("borderThickness") ?
+    parameters["borderThickness"] : 4;
+    var borderColor = parameters.hasOwnProperty("borderColor") ?
+    parameters["borderColor"] : { r:0, g:0, b:0, a:1.0 };
+    var backgroundColor = parameters.hasOwnProperty("backgroundColor") ?
+    parameters["backgroundColor"] : { r:255, g:255, b:255, a:1.0 };
+    var spriteAlignment = THREE.SpriteAlignment.topLeft;
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    context.font =  fontsize + "px " + fontface;
+    // get size data (height depends only on font size)
+    var metrics = context.measureText( message );
+    var textWidth = metrics.width;
+    // background color
+    context.fillStyle = "rgba(" + backgroundColor.r + "," + backgroundColor.g + ","
+    + backgroundColor.b + "," + backgroundColor.a + ")";
+    // border color
+    context.strokeStyle = "rgba(" + borderColor.r + "," + borderColor.g + ","
+    + borderColor.b + "," + borderColor.a + ")";
+    //context.lineWidth = borderThickness;
+    //roundRect(context, borderThickness/2, borderThickness/2, textWidth + borderThickness, fontsize * 1.4 + borderThickness, 6);
+    // 1.4 is extra height factor for text below baseline: g,j,p,q.
+    // text color
+    context.fillStyle = "rgba(0, 0, 0, 1.0)";
+    context.fillText( message, borderThickness, fontsize + borderThickness);
+    // canvas contents will be used for a texture
+    var texture = new THREE.Texture(canvas)
+    texture.needsUpdate = true;
+    var spriteMaterial = new THREE.SpriteMaterial(
+    { map: texture, useScreenCoordinates: false, alignment: spriteAlignment } );
+    var sprite = new THREE.Sprite( spriteMaterial );
+    sprite.scale.set(1000,500,1.0);
+    return sprite;
+}
+
+
+
+function onWindowResize() {
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
+
+
+
+function animate() 
+{
+    requestAnimationFrame( animate );
+	render();		
+	update();
+}
+
+function update()
+{
+	if ( keyboard.pressed("z") ) 
+	{	// do something   
+	}
+	camera.lookAt({x:0,y:-3000,z:0});
+	controls.update();
+	//stats.update();
+}
+
+function render() 
+{   
+        camera.lookAt({x:0,y:-3000,z:0});
+	renderer.render( scene, camera );
+}
+{/literal}
+</script>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    {/if}

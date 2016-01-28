@@ -1,0 +1,3 @@
+[30-Sep-2015 13:28:42 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_STRING in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 302
+[30-Sep-2015 13:30:53 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_IF, expecting T_FUNCTION in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 293
+[30-Sep-2015 13:41:41 Europe/Warsaw] PHP Parse error:  syntax error, unexpected '/' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 308

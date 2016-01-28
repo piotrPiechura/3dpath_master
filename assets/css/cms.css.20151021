@@ -1,0 +1,47 @@
+.varField{display: none;}
+
+#grp_variant_j1,
+#grp_variant_j2,
+#grp_variant_j3,
+#grp_variant_j4,
+#grp_variant_s1,
+#grp_variant_s2,
+#grp_variant_s3,
+#grp_variant_s4 {
+    display: none;
+}
+
+#mainForm_wellTrajectoryVariant {
+    display: none;    
+}
+
+.errorBadField{
+    border: 1px solid #C70404;
+}
+
+.errorBadFieldMsg {
+    color: #C70404;
+    display:block;
+}
+
+.error {
+    background-color: red;
+    color: red;
+}
+
+.odd{
+    background-color: #eeeeee;
+}
+
+.even{
+   background-color: #ffffff; 
+}
+
+.slotDirections{
+    background-image: url("../img/directSlots.gif");
+    background-position: -30px, -30px;
+}
+
+.slotDirections td{
+    padding:15px;
+}

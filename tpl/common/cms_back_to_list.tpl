@@ -1,0 +1,1 @@
+<a class="return" href="{if !empty($listPageAddress)}{$listPageAddress}{else}{$url->createHTML('_m', $controllerModule, '_o', 'CMSList')}{/if}">{#back#}</a>

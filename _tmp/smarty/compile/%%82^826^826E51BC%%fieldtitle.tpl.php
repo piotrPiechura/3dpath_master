@@ -1,0 +1,4 @@
+<?php /* Smarty version 2.6.20, created on 2015-12-11 15:54:49
+         compiled from form/fieldtitle.tpl */ ?>
+<?php if ($this->_tpl_vars['_currentFieldStruct']['showErrors'] && ! empty ( $this->_tpl_vars['formErrorMessages'] )): ?><?php $this->assign('_fieldName', $this->_tpl_vars['_currentFieldStruct']['field']->getName()); ?><?php if ($this->_tpl_vars['formErrorMessages']->isBadField($this->_tpl_vars['_fieldName']) || $this->_tpl_vars['formErrorMessages']->isAffectedField($this->_tpl_vars['_fieldName'])): ?><?php $this->assign('_title', ''); ?><?php $this->assign('_messages', $this->_tpl_vars['formErrorMessages']->getMessagesByFieldName($this->_tpl_vars['_fieldName'])); ?><?php if (! empty ( $this->_tpl_vars['_messages'][0] )): ?><?php $this->assign('_errorDesc', $this->_tpl_vars['_messages'][0]); ?>title="<?php echo $this->_config[0]['vars'][$this->_tpl_vars['_errorDesc']]; ?>
+"<?php endif; ?><?php endif; ?><?php endif; ?>

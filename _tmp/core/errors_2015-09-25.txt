@@ -1,0 +1,4 @@
+[25-Sep-2015 13:03:01 Europe/Warsaw] PHP Fatal error:  Call to undefined function printr() in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 388
+[25-Sep-2015 15:42:05 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ',' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 426
+[25-Sep-2015 15:43:38 Europe/Warsaw] PHP Parse error:  syntax error, unexpected '{' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 426
+[25-Sep-2015 16:11:43 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting '(' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 163

@@ -1,0 +1,3 @@
+[26-Sep-2015 14:16:43 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_STRING in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 420
+[26-Sep-2015 16:17:28 Europe/Warsaw] PHP Parse error:  syntax error, unexpected '}' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 448
+[26-Sep-2015 16:24:22 Europe/Warsaw] PHP Parse error:  syntax error, unexpected '*' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 450

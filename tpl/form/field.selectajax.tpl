@@ -1,0 +1,1 @@
+<select {include file="form/fieldtitle.tpl"} {include file="form/fieldclass.tpl"} name="{$_currentFieldStruct.field->getName()}" id="{$_currentFieldStruct.field->getHTMLId($_currentFormId)}" {$_currentFieldStruct.htmlAttributes} ><option value="0" selected="selected">{#selectEmpty#}</option></select>{include file="form/fielderrormessage.tpl"}

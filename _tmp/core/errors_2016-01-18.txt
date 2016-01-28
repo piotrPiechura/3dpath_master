@@ -1,0 +1,6 @@
+[18-Jan-2016 10:45:37 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ':' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 294
+[18-Jan-2016 10:45:38 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ':' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 294
+[18-Jan-2016 10:46:10 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ':' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 294
+[18-Jan-2016 10:46:12 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ':' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 294
+[18-Jan-2016 10:48:50 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_STRING in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 328
+[18-Jan-2016 10:54:50 Europe/Warsaw] PHP Parse error:  syntax error, unexpected '}' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 365

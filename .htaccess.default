@@ -1,0 +1,12 @@
+Allow from all
+Options -Indexes
+RewriteEngine On
+
+RewriteRule ^admin*$ http://dev.deator.com.pl/katalog?_m=Admin&_o=Login [L]
+RewriteRule ^admin/*$ http://dev.deator.com.pl/katalog?_m=Admin&_o=Login [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php
+

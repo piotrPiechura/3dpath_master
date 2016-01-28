@@ -1,0 +1,4 @@
+[22-Dec-2014 20:42:04] PHP Parse error:  syntax error, unexpected '[' in /www.3dpath.com/php/modules/well/WellCMSEditController.class.php on line 230
+[22-Dec-2014 20:43:13] PHP Parse error:  syntax error, unexpected '[' in /www.3dpath.com/php/modules/well/WellCMSEditController.class.php on line 230
+[22-Dec-2014 20:43:31] PHP Parse error:  syntax error, unexpected '[' in /www.3dpath.com/php/modules/well/WellCMSEditController.class.php on line 230
+[22-Dec-2014 20:43:58] PHP Parse error:  syntax error, unexpected '[' in /www.3dpath.com/php/modules/well/WellCMSEditController.class.php on line 230

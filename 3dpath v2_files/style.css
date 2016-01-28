@@ -1,0 +1,77 @@
+body { 
+	background-color: #eee;
+	margin: 0; 
+	padding: 0;
+	font-family: arial, verdana, sans-serif;
+	font-size: 12px;
+}
+
+#wykres_3dpath{
+	clear: left;
+	background-color: #fff;
+	margin-top: 20px;
+	margin-left: 20px;
+	border: 1px solid #88a;
+	margin-bottom: 20px;
+}
+
+#wykres_conf{
+	float: left;
+	width: 480px;
+	background-color: #fff;
+	margin-top: 10px;
+	margin-left: 20px;
+	padding: 10px;
+	border: 1px solid #88a;
+	margin-bottom: 10px;
+}
+
+#wykres_conf2{
+	width: 180px;
+	float: left;
+	background-color: #fff;
+	margin-top: 10px;
+	margin-left: 10px;
+	padding: 10px;
+	border: 1px solid #88a;
+}
+
+.btn-on {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 10px;
+  background: #d4d4d4;
+  padding: 3px 3px 3px 3px;
+  text-decoration: none;
+}
+
+.btn-on:hover {
+  text-decoration: none;
+}
+
+.btn-off {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  font-family: Arial;
+  color: #999;
+  font-size: 10px;
+  background: #d4d4d4;
+  padding: 3px 3px 3px 3px;
+  text-decoration: none;
+}
+
+.btn-off:hover {
+  text-decoration: none;
+}
+
+.btn-on:focus {
+  outline: none;
+}
+
+.btn-off:focus {
+  outline: none;
+}

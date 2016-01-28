@@ -1,0 +1,28 @@
+<?php
+class UploadRecordDAO extends CoreModelAbstractDAO {
+	protected function getTableName() {
+		return '_tmpRecord';
+	}
+
+	protected function getFields() {
+		return array(
+			'id' => null
+		);
+	}
+
+	protected function getManyToManyRelations()	{
+		return array();
+	}
+
+	protected function hasNumerousDirectlyRelatedRecords(array &$record) {
+		return False;
+	}
+
+	protected function getDirectlyRelatedRecords(&$record) {
+		return array();
+	}
+
+	protected function getDefaultOrderBySQL() {
+		return 'id';
+	}
+}

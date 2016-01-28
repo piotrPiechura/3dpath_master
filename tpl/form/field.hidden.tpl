@@ -1,0 +1,1 @@
+<input class="hidden" type="hidden" name="{$_currentFieldStruct.field->getName()}" value="{$_currentFieldStruct.field->getHTMLValue()}" id="{$_currentFieldStruct.field->getHTMLId($_currentFormId)}" {$_currentFieldStruct.htmlAttributes} />

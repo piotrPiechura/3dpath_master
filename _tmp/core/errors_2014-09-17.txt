@@ -1,0 +1,11 @@
+[17-Sep-2014 03:41:53 UTC] PHP Fatal error:  Call to undefined method ProjectDAO::getProjectByComapnyIdAndUserId() in /var/www/www.3dpath.com/php/modules/cms/CMSAbstractController.class.php on line 63
+[17-Sep-2014 03:42:20 UTC] PHP Fatal error:  Call to undefined method ProjectDAO::getProjectByComapnyIdAndUserId() in /var/www/www.3dpath.com/php/modules/cms/CMSAbstractController.class.php on line 63
+[17-Sep-2014 03:42:23 UTC] PHP Fatal error:  Call to undefined method ProjectDAO::getProjectByComapnyIdAndUserId() in /var/www/www.3dpath.com/php/modules/cms/CMSAbstractController.class.php on line 63
+[17-Sep-2014 12:11:55 UTC] PHP Fatal error:  Access level to WellCMSEditController::prepareData() must be public (as in class CMSAbstractControllerEdit) in /var/www/www.3dpath.com/php/modules/well/WellCMSEditController.class.php on line 2
+[17-Sep-2014 12:12:32 UTC] PHP Fatal error:  Class 'TrajectoryVariant' not found in /var/www/www.3dpath.com/php/modules/well/WellCMSEditController.class.php on line 29
+[17-Sep-2014 12:12:50 UTC] PHP Fatal error:  Class 'TrajectoryVariant' not found in /var/www/www.3dpath.com/php/modules/well/WellCMSEditController.class.php on line 29
+[17-Sep-2014 12:12:53 UTC] PHP Fatal error:  Class 'TrajectoryVariant' not found in /var/www/www.3dpath.com/php/modules/well/WellCMSEditController.class.php on line 29
+[17-Sep-2014 15:28:53] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /www.3dpath.com/php/config/ConfigData.class.php on line 94
+[17-Sep-2014 15:28:55] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /www.3dpath.com/php/config/ConfigData.class.php on line 94
+[17-Sep-2014 17:08:02] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /www.3dpath.com/php/config/ConfigData.class.php on line 94
+[17-Sep-2014 17:08:04] PHP Parse error:  syntax error, unexpected '}', expecting ')' in /www.3dpath.com/php/config/ConfigData.class.php on line 94

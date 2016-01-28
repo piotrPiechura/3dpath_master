@@ -1,0 +1,1 @@
+[05-Dec-2015 12:26:32 Europe/Warsaw] PHP Fatal error:  Allowed memory size of 201326592 bytes exhausted (tried to allocate 71 bytes) in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 52

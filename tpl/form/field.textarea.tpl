@@ -1,0 +1,1 @@
+<textarea {include file="form/fieldtitle.tpl"} {include file="form/fieldclass.tpl"} name="{$_currentFieldStruct.field->getName()}" cols="64" rows="4" id="{$_currentFieldStruct.field->getHTMLId($_currentFormId)}" {$_currentFieldStruct.htmlAttributes}>{$_currentFieldStruct.field->getHTMLValue()}</textarea>{include file="form/fielderrormessage.tpl"}

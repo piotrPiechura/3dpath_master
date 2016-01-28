@@ -1,0 +1,14 @@
+Allow from all
+RewriteEngine On
+
+RewriteRule ^admin*$ http://192.168.0.250/www.3dpath.com/?_m=Admin&_o=Login [L]
+RewriteRule ^admin/*$ http://192.168.0.250/www.3dpath.com/?_m=Admin&_o=Login [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php
+
+:Location /*.php
+  Use php53
+:Location

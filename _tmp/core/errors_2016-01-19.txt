@@ -1,0 +1,5 @@
+[19-Jan-2016 11:17:21 Europe/Warsaw] PHP Fatal error:  Allowed memory size of 201326592 bytes exhausted (tried to allocate 74 bytes) in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 62
+[19-Jan-2016 12:55:34 Europe/Warsaw] PHP Parse error:  syntax error, unexpected '}' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 365
+[19-Jan-2016 13:34:03 Europe/Warsaw] PHP Fatal error:  Allowed memory size of 201326592 bytes exhausted (tried to allocate 71 bytes) in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 52
+[19-Jan-2016 13:36:19 Europe/Warsaw] PHP Fatal error:  Allowed memory size of 201326592 bytes exhausted (tried to allocate 73 bytes) in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 56
+[19-Jan-2016 13:37:22 Europe/Warsaw] PHP Fatal error:  Allowed memory size of 201326592 bytes exhausted (tried to allocate 71 bytes) in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 52

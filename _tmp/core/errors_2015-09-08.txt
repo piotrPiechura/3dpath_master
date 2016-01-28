@@ -1,0 +1,1 @@
+[08-Sep-2015 13:20:10 Europe/Warsaw] PHP Fatal error:  Call to undefined function printr() in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1400

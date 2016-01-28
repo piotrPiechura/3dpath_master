@@ -1,0 +1,76 @@
+<?php
+class SiteCMSEditController extends CMSAbstractControllerEdit {
+	public function getMenuItemDescription() {
+		return 'Site';
+	}
+
+	protected function getDAOClass() {
+		return 'SiteDAO';
+	}
+	
+	protected function initRecordManyToManyRelations() {}
+
+	protected function initMultiselectRelations() {}
+	
+	/*protected function initActions() {
+		$this->availableActions = array('Save');
+		/*if ($this->record['faqItemState'] == 'visible') {
+			$this->availableActions[] = 'Hide';
+		} else {
+			$this->availableActions[] = 'Show';
+		}*/
+		/*if(!empty($this->record['id']) && !$this->dao->hasRelatedRecords($this->record)) {
+			$this->availableActions[] = 'Delete';
+		}
+	}*/
+        
+        protected function initForm() {
+		$projectId = CoreServices2::getRequest()->getFromGet('proj');
+		$this->form = new CoreForm(
+			'post',
+			CoreServices::get('url')->createHTML('_m', 'Site', '_o', 'CMSEdit', 'proj', $projectId)
+		);
+	}
+
+	protected function createFormFields() {
+		parent::createFormFields();
+		//$this->form->addField(new CoreFormFieldSelectAjax('Id'));
+                
+		$this->form->addField(new CoreFormFieldText('siteName'));
+                $this->form->addField(new CoreFormFieldText('siteDistrict'));
+                $this->form->addField(new CoreFormFieldText('siteBlock'));
+                $this->form->addField(new CoreFormFieldText('siteElevation'));
+                $this->form->addField(new CoreFormFieldText('siteLocation'));
+                $this->form->addField(new CoreFormFieldText('siteTeditNorthing'));
+                $this->form->addField(new CoreFormFieldText('siteTeditEasting'));
+                //$this->form->addField(new CoreFormFieldText('companySurveyCalcMethod'));
+	}
+
+	protected function addFormValidators() {
+		//$this->form->addValidator(new UserValidatorActiveUserId());
+		//$this->form->addValidator(new AuthorValidatorSingleAuthorForUserId());
+		$this->form->addValidator(new CoreFormValidatorNotEmpty('siteName'));
+		$this->form->addValidator(new CoreFormValidatorMaxTextLength('siteName', 100));
+	}
+
+	protected function setSpecialRecordFieldsBeforeSave() {
+                $projectId = CoreServices2::getRequest()->getFromGet('proj');
+		if(empty($this->record['id'])) {
+			$this->record['projectId'] = $projectId;
+		}
+	}
+
+	protected function afterSave() {}
+        
+        protected function handleDeleteRequest() {
+		parent::handleDeleteRequest();
+		$this->setRedirectAddress(CoreServices2::getUrl()->createAddress(
+					'_m', 'Home',
+					'_o', 'CMSEdit'
+				));
+		
+	}
+        
+        
+}
+?>

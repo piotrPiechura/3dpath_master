@@ -1,0 +1,2 @@
+[28-Sep-2015 13:57:42 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_ELSE in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 430
+[28-Sep-2015 16:05:13 Europe/Warsaw] PHP Parse error:  syntax error, unexpected '}' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 421

@@ -1,0 +1,15 @@
+[16-Sep-2015 15:09:22 Europe/Warsaw] PHP Parse error:  syntax error, unexpected '*' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1421
+[16-Sep-2015 16:19:54 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting '(' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1373
+[16-Sep-2015 16:20:41 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting '(' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1373
+[16-Sep-2015 16:20:45 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting '(' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1373
+[16-Sep-2015 16:20:55 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting '(' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1373
+[16-Sep-2015 16:21:54 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_VARIABLE in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1373
+[16-Sep-2015 16:24:33 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_VARIABLE in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1373
+[16-Sep-2015 16:27:01 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_VARIABLE in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1373
+[16-Sep-2015 16:27:08 Europe/Warsaw] PHP Parse error:  syntax error, unexpected T_VARIABLE in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1373
+[16-Sep-2015 16:31:22 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ')' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1402
+[16-Sep-2015 16:31:23 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ')' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1402
+[16-Sep-2015 16:31:30 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ')' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1402
+[16-Sep-2015 16:31:31 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ')' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1402
+[16-Sep-2015 16:31:36 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ')' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1402
+[16-Sep-2015 16:33:08 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ')' in /www.3dpath.com/php/modules/trajectory/TrajectoryAlgoritm.class.php on line 1402

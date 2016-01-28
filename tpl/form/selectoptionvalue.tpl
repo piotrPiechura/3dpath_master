@@ -1,0 +1,1 @@
+{if $_description == '<choose>'}{#selectChoose#}{elseif $_description == '<empty>'}{#selectEmpty#}{else}{$_description}{/if}

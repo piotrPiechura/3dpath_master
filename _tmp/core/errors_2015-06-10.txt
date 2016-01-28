@@ -1,0 +1,7 @@
+[10-Jun-2015 09:35:42 Europe/Warsaw] PHP Fatal error:  Call to a member function getValue() on a non-object in /www.3dpath.com/php/modules/trajectory/TrajectoryAjaxSlotController.class.php on line 48
+[10-Jun-2015 09:36:27 Europe/Warsaw] PHP Fatal error:  Call to a member function getValue() on a non-object in /www.3dpath.com/php/modules/trajectory/TrajectoryAjaxSlotController.class.php on line 48
+[10-Jun-2015 09:39:11 Europe/Warsaw] PHP Fatal error:  Call to a member function getValue() on a non-object in /www.3dpath.com/php/modules/trajectory/TrajectoryAjaxSlotController.class.php on line 48
+[10-Jun-2015 09:40:28 Europe/Warsaw] PHP Fatal error:  Call to a member function getValue() on a non-object in /www.3dpath.com/php/modules/trajectory/TrajectoryAjaxSlotController.class.php on line 48
+[10-Jun-2015 09:50:55 Europe/Warsaw] PHP Fatal error:  Call to a member function getValue() on a non-object in /www.3dpath.com/php/modules/trajectory/TrajectoryAjaxSlotController.class.php on line 48
+[10-Jun-2015 09:54:06 Europe/Warsaw] PHP Fatal error:  Call to a member function getValue() on a non-object in /www.3dpath.com/php/modules/trajectory/TrajectoryAjaxSlotController.class.php on line 48
+[10-Jun-2015 09:55:07 Europe/Warsaw] PHP Fatal error:  Call to a member function getValue() on a non-object in /www.3dpath.com/php/modules/trajectory/TrajectoryAjaxSlotController.class.php on line 48

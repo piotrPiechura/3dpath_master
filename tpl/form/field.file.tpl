@@ -1,0 +1,1 @@
+<input {include file="form/fieldtitle.tpl"} {assign var='_class' value='file'}{include file="form/fieldclass.tpl"}{assign var='_class' value=''} type="file" name="{$_currentFieldStruct.field->getName()}" id="{$_currentFieldStruct.field->getHTMLId($_currentFormId)}" {$_currentFieldStruct.htmlAttributes} />{include file="form/fielderrormessage.tpl"}
