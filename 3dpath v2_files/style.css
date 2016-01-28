@@ -1,77 +1,286 @@
-body { 
-	background-color: #eee;
-	margin: 0; 
-	padding: 0;
-	font-family: arial, verdana, sans-serif;
-	font-size: 12px;
+body {
+    background-color: #eee;
+    margin: 0;
+    padding: 0;
+    font-family: arial, verdana, sans-serif;
+    font-size: 12px;
 }
 
 #wykres_3dpath{
-	clear: left;
-	background-color: #fff;
-	margin-top: 20px;
-	margin-left: 20px;
-	border: 1px solid #88a;
-	margin-bottom: 20px;
+    clear: left;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 1px solid #88a;
+    margin-bottom: 20px;
 }
 
 #wykres_conf{
-	float: left;
-	width: 480px;
-	background-color: #fff;
-	margin-top: 10px;
-	margin-left: 20px;
-	padding: 10px;
-	border: 1px solid #88a;
-	margin-bottom: 10px;
+    float: left;
+    width: 480px;
+    background-color: #fff;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding: 10px;
+    border: 1px solid #88a;
+    margin-bottom: 10px;
 }
 
 #wykres_conf2{
-	width: 180px;
-	float: left;
-	background-color: #fff;
-	margin-top: 10px;
-	margin-left: 10px;
-	padding: 10px;
-	border: 1px solid #88a;
+    width: 180px;
+    float: left;
+    background-color: #fff;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #88a;
 }
 
 .btn-on {
-  -webkit-border-radius: 3;
-  -moz-border-radius: 3;
-  border-radius: 3px;
-  font-family: Arial;
-  color: #000000;
-  font-size: 10px;
-  background: #d4d4d4;
-  padding: 3px 3px 3px 3px;
-  text-decoration: none;
+    -webkit-border-radius: 3;
+    -moz-border-radius: 3;
+    border-radius: 3px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 10px;
+    background: #d4d4d4;
+    padding: 3px 3px 3px 3px;
+    text-decoration: none;
 }
 
 .btn-on:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .btn-off {
-  -webkit-border-radius: 3;
-  -moz-border-radius: 3;
-  border-radius: 3px;
-  font-family: Arial;
-  color: #999;
-  font-size: 10px;
-  background: #d4d4d4;
-  padding: 3px 3px 3px 3px;
-  text-decoration: none;
+    -webkit-border-radius: 3;
+    -moz-border-radius: 3;
+    border-radius: 3px;
+    font-family: Arial;
+    color: #999;
+    font-size: 10px;
+    background: #d4d4d4;
+    padding: 3px 3px 3px 3px;
+    text-decoration: none;
 }
 
 .btn-off:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .btn-on:focus {
-  outline: none;
+    outline: none;
 }
 
 .btn-off:focus {
-  outline: none;
+    outline: none;
+}
+
+
+.fieldset{
+    padding: 10px 10px 5px 10px;
+    border: 1px solid;
+    margin: 0 10px 10px 0 ;
+    position: relative;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.fieldset.noFrame{
+    padding: 0 0 0 0;
+    border: none;
+    margin: 0 10px 10px 0 ;
+    position: relative;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+.fieldset .legend{
+    position: absolute;
+    top: -8px;
+    left: 5px;
+    padding: 1px 3px 1px 3px;
+    font-size: 10px;
+    font-family: OpenSansSemiBold;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.fieldset .item{
+    float: left;
+    clear: both;
+    display: block;
+    line-height: 160%;
+    font-size: 11px;
+    margin: 0 0 5px 0;
+}
+
+.fieldset .wrapTextarea{
+    float: left;
+    width: 350px;
+    margin: 0 0 3px 0;
+}
+.fieldset .wrapTextarea textarea{
+    width: 300px;
+    margin-bottom: 2px;
+}
+.fieldset .wrapTextarea .hint{
+    float: left;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.fieldset input{
+    font-size: 11px;
+    display: block;
+    float: left;
+    width: 150px;
+    padding: 4px 5px 3px 5px;
+    height: 24px;
+    margin: 0 0 5px 0 ;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.fieldset textarea{
+    font-size: 11px;
+    display: block;
+    float: left;
+    width: 150px;
+    padding: 4px 5px 3px 5px;
+    height: 50px;
+    margin: 0 0 5px 0 ;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;
+
+    min-width: 150px;
+    min-height: 50px;
+}
+.fieldset input.long{
+    width: 250px;
+}
+
+.fieldset input.veryLong{
+    width: 390px;
+}
+.fieldset input.veryVeryLong{
+    width: 700px;
+}
+
+.fieldset .bigTextarea{
+    width: 585px;
+    max-width: 585px;
+    min-width: 585px;
+    height: 300px;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.fieldset textarea.veryLong{
+    width: 390px;
+    height: 100px;
+    min-width: 390px;
+    max-width: 390px;
+    min-height: 100px;
+    max-height: 500px;
+}
+.fieldset textarea.mail{
+    width: 390px;
+    height: 250px;
+    min-width: 390px;
+    max-width: 390px;
+    min-height: 250px;
+    max-height: 500px;
+}
+.fieldset textarea.short{
+    width: 390px;
+    height: 50px;
+    min-width: 390px;
+    max-width: 390px;
+    min-height: 50px;
+    max-height: 500px;
+}
+.fieldset input.short{
+    width: 70px;
+}
+.fieldset .selectboxit-container{
+    margin: 0 0 0 0;
+    display: inline-block;
+}
+
+.fieldset .selectboxit-container{
+    height: 24px;
+}
+.fieldset input.size1of3{
+    width: 33%;
+}
+.fieldset input.size1of4.margin{
+    width: 28%;
+    margin-right: 5%;
+}
+.fieldset input.size3of4{
+    width: 67%;
+}
+.fieldset label{
+    display: inline-block;
+    width: 130px;
+    padding: 4px 10px  0 10px;
+    line-height: 16px;
+}
+
+
+.fieldset .hint{
+    display: block;
+    float: left;
+    width: 180px;
+    margin: 0px 0 0px 10px;
+    position: relative;
+}
+.fieldset .hint.wide{
+    width: 420px;
+}
+.fieldset .newLineHint {
+    margin: 0px 10px 5px 150px;
+    width: auto;
+}
+.fieldset .icon.error{
+    display: block;
+    float: left;
+    margin: 3px 0 0 3px;
+    position: relative;
+
+}
+.fieldset .buttons label{
+    clear: none;
+    width: auto;
+    padding-top: 1px ;
+    padding-bottom: 1px ;
+}
+.fieldset .buttons{
+    display: block;
+    margin: 0 0 5px 1px;
+}
+
+.fieldset .buttons .margins{
+    display: block;
+    margin: 5px 0 5px 1px;
+}
+h2 .button{
+    width: auto;
+    float: none;
+    display: inline-block;
+    margin: 0 0 0 10px;
+}
+.fieldset  .selectboxit-text{
+    position: relative;
+    top: 1px;
+}
+
+.fieldset .text-info {
+    margin-left: 151px;
+    font-size: 12px;
+    margin: 3px;
+    color: #666;
+    padding-top: 3px;
 }
